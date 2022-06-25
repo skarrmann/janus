@@ -42,7 +42,7 @@ PCB  | circuit board | 4 | | Send Gerber zip files to [JLCPCB](https://jlcpcb.co
 Seeed XIAO RP2040 | Microcontroller board | 2 | | [Seeed Studio - XIAO RP2040](https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html)
 Kycon GMX-SMT2-N-88 | connect keyboard halves | 2 | | [DigiKey - GMX-SMT2-N-88](https://www.digikey.com/en/products/detail/kycon-inc/GMX-SMT2-N-88/10246865)
 1N4148 SOD-123 | Diodes for keyboard row-column matrix | 34 | | [AliExpress - 1N4148 SOD-123](https://www.aliexpress.com/item/4000331408283.html)
-Keyswitches |  | 34 | PCB mount (5 pin) switches recommended | MX: [KBDFans - Gateron Switches (10 switches)](https://kbdfans.com/collections/gateron-swithes/products/gateron-swtich-3pin-or-5pin?variant=35765199629)
+Keyswitches |  | 34 | PCB mount (5 pin) switches recommended | MX: [KBDFans - Gateron Clear Linear Switches - 5 Pin](https://kbdfans.com/products/gateron-clear-switches?variant=40091987345547)
 Keycaps |  | 34 | | MX: [AliExpress - DSA 104 Key](https://www.aliexpress.com/item/33047340638.html?spm=a2g0s.9042311.0.0.2fcc4c4dcDlC15)
 M2 6mm screws | Secure main PCB and plate PCBs | 8 | | [AliExpress - 200PCS-M2 Mix - Black](https://www.aliexpress.com/item/32862529967.html)
 M2 nuts | Secure main PCB and plate PCBs | 8 | | See M2 set above
