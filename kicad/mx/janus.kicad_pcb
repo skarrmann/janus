@@ -1258,7 +1258,7 @@
 
   (footprint "janus-footprints:Logo_Janus" (layer "F.Cu")
     (tedit 0) (tstamp 00000000-0000-0000-0000-0000613e8cc1)
-    (at 149 105 -45)
+    (at 148.5 105 -45)
     (property "Sheetfile" "janus.kicad_sch")
     (property "Sheetname" "")
     (path "/00000000-0000-0000-0000-0000611138f2")
@@ -5167,7 +5167,7 @@
 
   (footprint "janus-footprints:Logo_Janus" (layer "B.Cu")
     (tedit 0) (tstamp 00000000-0000-0000-0000-0000614efa96)
-    (at 149 105 45)
+    (at 148.5 105 45)
     (property "Sheetfile" "janus.kicad_sch")
     (property "Sheetname" "")
     (path "/00000000-0000-0000-0000-0000614b138e")
