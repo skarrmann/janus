@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "janus-components")(type "KiCad")(uri "${KIPRJMOD}/../../kicad-libraries/janus-components/janus-components.kicad_sym")(options "")(descr ""))
+)
