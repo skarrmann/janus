@@ -4,11 +4,9 @@
 
 Janus is a small 34 key split ortholinear keyboard, powered by two Seeed XIAO RP2040 with the keyboards halves connected by an ethernet cable.
 
-This keyboard is a grid of 1U keys with no special features: no hotswap, no RGB (except those on the XIAO RP2040), no OLED screen, no knobs.
-
 The PCB works as both a logical PCB and a bottom plate.
 
-Only Cherry MX style switches are supported.
+This keyboard is a grid of 1U keys with no special features: no hotswap, no RGB (except those on the XIAO RP2040), no OLED screen, no knobs. It only supports Cherry MX style switches.
 
 ## Project structure
 
@@ -17,6 +15,7 @@ Only Cherry MX style switches are supported.
 * [`kicad`](kicad): KiCad project files (schematics and PCB designs)
 * [`kicad-libraries`](kicad-libraries): KiCad components and footprints
 * [`images`](images): Images for project documentation
+* [`firmware`](firmware): Firmware files
 
 ## PCBs
 
@@ -42,8 +41,10 @@ The two halves of the keyboard communicate using full-duplex serial. Note the RX
 
 ## Keyboard firmware
 
-* QMK (TBD)
-* KMK (TBD)
+* KMK
+    * Setup instructions and basic configuration is in this repo: [`firmware/kmk`](firmware/kmk)
+* QMK
+    * *TBD once RP2040 support is merged into QMK `master` branch*
 
 ## Bill of materials
 
@@ -108,7 +109,7 @@ An ethernet connector was chosen to connect the keyboard halves because its conn
 
 ## KiCad project notes
 
-Separate symbols and footprints are defined for the bottom plate cutouts (both for for MX switches and the 8P8C ethernet jack). No special plugins are used here; these cutouts are manually positioned in the PCB design.
+Separate symbols and footprints are defined for the bottom plate cutouts (both for for MX switches and the 8P8C ethernet jack). No special code nor plugins are used here; these cutouts are manually positioned in the PCB design.
 
 ## Revision history
 
