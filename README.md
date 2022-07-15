@@ -59,7 +59,7 @@ Keyswitches |  | 34 | PCB mount (5 pin) switches recommended | MX: [KBDFans - Ga
 Keycaps |  | 34 | | MX: [AliExpress - DSA 1U Keycaps](https://www.aliexpress.com/item/2251832643863132.html)
 M2 6mm screws | Secure main PCB and plate PCBs | 8 | | [AliExpress - 200PCS-M2 Mix - Black](https://www.aliexpress.com/item/32862529967.html)
 M2 nuts | Secure main PCB and plate PCBs | 8 | | See M2 set above
-2mm tall rubber bumpons | Raise board above desk surface and provide skid resitance | 10 | Shop around - you can get cheaper alternatives if you don't need 96 of them! | [Amazon - 3M SJ5302 Clear Bumpon Blister Pack (96 Bumpons)](https://www.amazon.com/SJ5302-Clear-Bumpon-Blister-Bumpons/dp/B01ACPT2LU)
+2mm tall rubber bumpons | Raise board above desk surface and provide skid resitance | 12 | Shop around - you can get cheaper alternatives if you don't need 96 of them! | [Amazon - 3M SJ5302 Clear Bumpon Blister Pack (96 Bumpons)](https://www.amazon.com/SJ5302-Clear-Bumpon-Blister-Bumpons/dp/B01ACPT2LU)
 
 You will also need an ethernet patch cable to connect the keyboard halves. Monoprice Micro SlimRun cables are my personal recommendation.
 
@@ -92,12 +92,12 @@ The PCB design is in favor of PCB manufacturers' minimum order quantity of 5 and
 
 The Seeed XIAO RP2040 was chosen as the microcontroller because its size works well with the intended layout. It just barely fits within the space of an MX keyswitch. The castellated pads permit surface-mount soldering, which makes the reversible PCB design more practical.
 
-An ethernet connector was chosen to connect the keyboard halves because its connector fits within the space of an MX keyswitch. The Kycon GMX-SMT2-N-88 part was the best fit I could find for this use case. Although only 4 wires are needed for full-duplex serial communication between halves, an 8P8C ethernet jack was chosen due to part availability.
+An ethernet connector was chosen to connect the keyboard halves because its connector fits within the space of an MX keyswitch. The Kycon GMX-SMT2-N-88 part was the best fit I could find for this use case. Although only 4 wires are needed for full-duplex serial communication between halves, an 8P8C ethernet jack was chosen over other modular jacks due to better part availability.
 
 ## Build tips
 
-* Before starting Check if the PCBs are warped, and bend them to be perfectly flat before soldering.
-* Solder the top SMD components first, from largest to smallest: diodes, XIAO RP2040, ethernet jack
+* Before starting, check if the PCBs are warped, and bend them to be perfectly flat before soldering.
+* Solder the top SMD components first, from largest to smallest: diodes, XIAO RP2040, 8P8C ethernet jack
 * Before soldering the XIAO RP2040, adhere a piece of electrical tape to its back to prevent potential shorts
     * ![Janus build, diodes then XIAO RP2040 with electrical tape](images/janus-build-diodes-electric-tape-microcontrollers.jpg)
 * Use a piece of heat-resistant tape to align the XIAO RP2040 in place when soldering. Solder the opposing edge pads, and ensure the component is straight and flat.
