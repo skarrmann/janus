@@ -98,7 +98,7 @@ An ethernet connector was chosen to connect the keyboard halves because its conn
 ## Build tips
 
 * Before starting, check if the PCBs are warped, and bend them to be perfectly flat before soldering.
-* Solder the top SMD components first, from largest to smallest: diodes, XIAO RP2040, 8P8C ethernet jack
+* Solder the top SMD components first, in order of smallest to largest: diodes, XIAO RP2040, 8P8C ethernet jack
 * Before soldering the XIAO RP2040, adhere a piece of electrical tape to its back to prevent potential shorts
     * ![Janus build, diodes then XIAO RP2040 with electrical tape](images/janus-build-diodes-electric-tape-microcontrollers.jpg)
 * Use a piece of heat-resistant tape to align the XIAO RP2040 in place when soldering. Solder the opposing edge pads, and ensure the component is straight and flat.
