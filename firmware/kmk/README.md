@@ -40,4 +40,4 @@ This custom oneshot mod implementation supports the following:
     * `OneShotModReleaseMode.ON_INTERRUPT_PRESS`: Release oneshot mods when first interrupt key is pressed
     * `OneShotModReleaseMode.ON_INTERRUPT_RELEASE`: Release oneshot mods when any interrupt key is released
     * `OneShotModReleaseModeON_ALL_INTERRUPT_RELEASE`: Release oneshot mods when ALL interrupt keys are released
-* Optionally supports the ability to cancel active oneshot modes by re-pressing the key with the `cancel_on_repress` parameter.
+* Optionally supports the ability to cancel active oneshot mods by re-pressing the key with the `cancel_on_repress` parameter.
