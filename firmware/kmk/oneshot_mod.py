@@ -97,7 +97,7 @@ class OneShotMod(Module):
                 keyboard.cancel_timeout(self.timeout_key)
             # If there are no active interrupt keys, then reset the oneshot mod timeout
             if not self.active_interrupt_keys:
-                self.tieout_key = keyboard.set_timeout(self.timeout, lambda: self.release_oneshot_mods(keyboard))
+                self.timeout_key = keyboard.set_timeout(self.timeout, lambda: self.release_oneshot_mods(keyboard))
 
         return keyboard
 
