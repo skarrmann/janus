@@ -3,27 +3,27 @@ from kb import KMKKeyboard
 from kmk.keys import KC
 from kmk.modules.split import Split
 from kmk.modules.layers import Layers
-from oneshot_mod import OneShotMod, OneShotModReleaseMode
 from kmk.extensions.media_keys import MediaKeys
+
+from oneshot_mod import OneShotMod, OneShotModReleaseMode
 
 keyboard = KMKKeyboard()
 
 split = Split(
     data_pin = keyboard.data_pin,
     data_pin2 = keyboard.data_pin2,
-    uart_flip = False,
+    uart_flip = keyboard.uart_flip,
 )
-
 layers_ext = Layers()
-
 oneshot_mod_ext = OneShotMod(
     timeout=1000,
     release_mode=OneShotModReleaseMode.ON_INTERRUPT_PRESS,
     cancel_on_repress=False,
 )
+media_keys = MediaKeys()
 
 keyboard.modules = [split, layers_ext, oneshot_mod_ext]
-keyboard.extensions = [MediaKeys()]
+keyboard.extensions = [media_keys]
 
 SYM = KC.MO(1)
 NAV = KC.MO(2)

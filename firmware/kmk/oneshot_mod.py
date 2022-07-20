@@ -1,5 +1,4 @@
 from micropython import const
-
 from kmk.keys import make_argumented_key
 from kmk.modules import Module
 
@@ -62,6 +61,7 @@ class OneShotMod(Module):
             if self.timeout_key:
                 keyboard.cancel_timeout(self.timeout_key)
             if self.release_mode == OneShotModReleaseMode.ON_INTERRUPT_PRESS:
+                # Process the interrupt key press immediately so it occurs before oneshot mods are released
                 keyboard.pre_process_key(current_key, True)
                 keyboard._send_hid()
                 self.release_oneshot_mods(keyboard)
@@ -70,11 +70,11 @@ class OneShotMod(Module):
             # Active interrupt key released
             self.active_interrupt_keys.remove(current_key)
             if (self.release_mode == OneShotModReleaseMode.ON_INTERRUPT_RELEASE or not self.active_interrupt_keys):
+                # Process the interrupt key release immediately so it occurs before oneshot mods are released
                 keyboard.pre_process_key(current_key, False)
                 keyboard._send_hid()
                 self.release_oneshot_mods(keyboard)
                 return None
-
         return current_key
 
     def osm_pressed(self, key, keyboard, *args, **kwargs):
@@ -82,7 +82,6 @@ class OneShotMod(Module):
             del self.active_oneshot_mod_keys[key]
         else:
             self.active_oneshot_mod_keys[key] = OneShotModKeyStatus.PHYSICALLY_PRESSED
-
         keyboard.process_key(key.meta.kc, True)
         return keyboard
 
@@ -93,12 +92,11 @@ class OneShotMod(Module):
         else:
             # If oneshot mod key is still active, then track it as held until interrupted
             self.active_oneshot_mod_keys[key] = OneShotModKeyStatus.HELD_UNTIL_INTERRUPTED
-            if self.timeout_key:
-                keyboard.cancel_timeout(self.timeout_key)
-            # If there are no active interrupt keys, then reset the oneshot mod timeout
             if not self.active_interrupt_keys:
+                # If there are no active interrupt keys, then reset the oneshot mod timeout
+                if self.timeout_key:
+                    keyboard.cancel_timeout(self.timeout_key)
                 self.timeout_key = keyboard.set_timeout(self.timeout, lambda: self.release_oneshot_mods(keyboard))
-
         return keyboard
 
     def release_oneshot_mods(self, keyboard):

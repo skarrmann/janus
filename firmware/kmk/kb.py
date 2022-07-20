@@ -10,6 +10,7 @@ class KMKKeyboard(_KMKKeyboard):
     diode_orientation = DiodeOrientation.COLUMNS
     data_pin = board.D7
     data_pin2 = board.D6
+    uart_flip = False
 
     coord_mapping = [
      0,  1,  2,  3,  4, 24, 23, 22, 21, 20,
