@@ -11,7 +11,10 @@ Apply these steps on each XIAO RP2040:
     * Right: `JANUS_R`
 2. Copy KMK firmware files:
     * https://github.com/KMKfw/kmk_firmware/blob/master/docs/Getting_Started.md
-3. Copy the [`kb.py`](kb.py) and [`main.py`](main.py) files.
+3. Copy the custom files:
+    * [`kb.py`](kb.py)
+    * [`main.py`](main.py)
+    * [`oneshot_mod.py`](oneshot_mod.py)
 
 Now customize the layout and features in [`main.py`](main.py) file, and save the updates on your board.
 
@@ -21,6 +24,20 @@ View the [Janus default layout on Keyboard Layout Editor](http://www.keyboard-la
 
 This default layout is inspired by [Callum's QMK layout](https://github.com/qmk/qmk_firmware/tree/master/users/callum), with the following differences:
 
-* Mods are moved to the bottom row on each layer, and are mirrored on both sides.
-* No one-shot mods.
-* Key layout is rearranged.
+* Mods are moved to the bottom row on every layer, and are mirrored on both sides.
+* Symbol layer only contains non-shifted symbol keys.
+* General differences in key positions.
+
+Both our layouts use custom oneshot mod implementations to better suit our preferences.
+
+## Custom oneshot mod implementation
+
+This custom oneshot mod implementation supports the following:
+
+* Oneshot mods can be chained together. Pressing oneshot mods does not interrupt currently-held oneshot mods.
+* All held oneshot mods are released at the same time. They all share the same `timeout` parameter. Pressing any oneshot mod key resets the timeout counter.
+* Supports three release modes with the `release_mode` parameter:
+    * `OneShotModReleaseMode.ON_INTERRUPT_PRESS`: Release oneshot mods when first interrupt key is pressed
+    * `OneShotModReleaseMode.ON_INTERRUPT_RELEASE`: Release oneshot mods when any interrupt key is released
+    * `OneShotModReleaseModeON_ALL_INTERRUPT_RELEASE`: Release oneshot mods when ALL interrupt keys are released
+* Optionally supports the ability to cancel active oneshot modes by re-pressing the key with the `cancel_on_repress` parameter.
