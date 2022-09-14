@@ -31,19 +31,19 @@ FUN = KC.MO(3)
 
 OS_LSFT = KC.OSM(KC.LSFT)
 OS_LCTL = KC.OSM(KC.LCTL)
-OS_LALT= KC.OSM(KC.LALT)
+OS_LALT = KC.OSM(KC.LALT)
 OS_LGUI = KC.OSM(KC.LGUI)
 OS_RSFT = KC.OSM(KC.RSFT)
 OS_RCTL = KC.OSM(KC.RCTL)
-OS_RALT= KC.OSM(KC.RALT)
+OS_RALT = KC.OSM(KC.RALT)
 OS_RGUI = KC.OSM(KC.RGUI)
 
 keyboard.keymap = [
     [   # Default
-        KC.Q,    KC.W,    KC.F,    KC.P,    KC.G,    KC.J,   KC.L,     KC.U,    KC.Y,   KC.QUOT,
-        KC.A,    KC.R,    KC.S,    KC.T,    KC.D,    KC.H,   KC.N,     KC.E,    KC.I,   KC.O,
-        KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,    KC.K,   KC.M,     KC.COMM, KC.DOT, KC.SLSH,
-                                   NAV,     KC.LSFT, KC.SPC, SYM
+        KC.Q,    KC.W,    KC.F,    KC.P,    KC.G,    KC.J,    KC.L,    KC.U,    KC.Y,    KC.QUOT,
+        KC.A,    KC.R,    KC.S,    KC.T,    KC.D,    KC.H,    KC.N,    KC.E,    KC.I,    KC.O,
+        KC.Z,    KC.X,    KC.C,    KC.V,    KC.B,    KC.K,    KC.M,    KC.COMM, KC.DOT,  KC.SLSH,
+                                   NAV,     KC.LSFT, KC.SPC,  SYM
     ],
     [   # Symbol
         KC.SCLN, KC.LBRC, KC.RBRC, KC.N5,   KC.NO,   KC.NO,   KC.N6,   KC.MINS, KC.EQL,  KC.GRV,
@@ -58,9 +58,9 @@ keyboard.keymap = [
                                    KC.TRNS, KC.TRNS, KC.TRNS, FUN
     ],
     [   # Function
-        KC.F1,   KC.F2,   KC.F3,   KC.F4,   KC.NLCK, KC.SLCK, KC.F9,   KC.F10,  KC.F11,  KC.F12,
+        KC.F1,   KC.F2,   KC.F3,   KC.F4,   KC.NO,   KC.SLCK, KC.F9,   KC.F10,  KC.F11,  KC.F12,
         KC.F5,   KC.F6,   KC.F7,   KC.F8,   KC.NO,   KC.CLCK, KC.MUTE, KC.VOLD, KC.VOLU, KC.PAUS,
-        OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, KC.NO,   KC.NO,   OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI,
+        OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, KC.NO,   KC.NLCK, OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI,
                                    KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS
     ]
 ]
