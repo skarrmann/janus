@@ -44,7 +44,7 @@ The two halves of the keyboard communicate using full-duplex serial. Note the RX
 * KMK
     * Setup instructions and basic configuration is in this repo: [`firmware/kmk`](firmware/kmk)
 * QMK
-    * *TBD once RP2040 support is merged into QMK `master` branch*
+    * [Pull request](https://github.com/qmk/qmk_firmware/pull/18367)
 
 ## Bill of materials
 
