@@ -18,26 +18,43 @@ Apply these steps on each XIAO RP2040:
 
 Now customize the layout and features in [`main.py`](main.py) file, and save the updates on your board.
 
-## Default layout
+## Default keymap
 
-View the [Janus default layout on Keyboard Layout Editor](http://www.keyboard-layout-editor.com/#/gists/5144ea6a6c998df5f502f9240068de80)
+View the [Janus default keymap on Keyboard Layout Editor](http://www.keyboard-layout-editor.com/#/gists/5144ea6a6c998df5f502f9240068de80)
 
-This default layout is inspired by [Callum's QMK layout](https://github.com/qmk/qmk_firmware/tree/master/users/callum), with the following differences:
+This default keymap is inspired by [Callum's QMK keymap](https://github.com/qmk/qmk_firmware/tree/master/users/callum), with the following differences:
 
 * Mods are moved to the bottom row on every layer, and are mirrored on both sides.
 * Symbol layer only contains non-shifted symbol keys.
 * General differences in key positions.
 
-Both our layouts use custom oneshot mod implementations to better suit our preferences.
+Both layouts use similar oneshot key implementations.
 
-## Custom oneshot mod implementation
+## Custom oneshot module
 
-This custom oneshot mod implementation supports the following:
+As part of the oneshot module's setup, the following two methods should be called:
 
-* Oneshot mods can be chained together. Pressing oneshot mods does not interrupt currently-held oneshot mods.
-* All held oneshot mods are released at the same time. They all share the same `timeout` parameter. Pressing any oneshot mod key resets the timeout counter.
-* Supports three release modes with the `release_mode` parameter:
-    * `OneShotModReleaseMode.ON_INTERRUPT_PRESS`: Release oneshot mods when first interrupt key is pressed
-    * `OneShotModReleaseMode.ON_INTERRUPT_RELEASE`: Release oneshot mods when any interrupt key is released
-    * `OneShotModReleaseMode.ON_ALL_INTERRUPT_RELEASE`: Release oneshot mods when ALL interrupt keys are released
-* Optionally supports the ability to cancel active oneshot mods by re-pressing the key with the `cancel_on_repress` parameter.
+* `set_ignore_keys(ignore_keys)`: Specify a list of keys which are not treated as oneshot interrupt keys
+* `set_cancel_keys(cancel_keys)`: Specify a list of keys which when pressed, all active oneshot keys are immediately released
+
+Oneshot keys behave as follows:
+
+* When any oneshot key is pressed:
+    * Send a key press event for its corresponding key
+    * Set oneshot status as "active"
+    * Track this oneshot key's status as "pressed"
+* When any oneshot key is released:
+    * If oneshot status is "active", then track this oneshot key's status as "queued"
+    * Otherwise, send a key release event for its corresponding key 
+* When an interrupt key is pressed:
+    * If oneshot status is "active", then track this interrupt key
+* When an interrupt key is released:
+    * If this interrupt key is tracked, then "release all oneshot keys"
+* When a cancel key is pressed:
+    * "Release all oneshot keys"
+
+When "release all oneshot keys" occurs:
+
+* Set oneshot status as "inactive"
+* For every oneshot key currently tracked with status "queued", send key release event for their corresponding key
+* Clear all tracked oneshot keys and interrupt keys

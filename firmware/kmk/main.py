@@ -5,7 +5,7 @@ from kmk.modules.split import Split
 from kmk.modules.layers import Layers
 from kmk.extensions.media_keys import MediaKeys
 
-from oneshot_mod import OneShotMod, OneShotModReleaseMode
+from oneshot import OneShot
 
 keyboard = KMKKeyboard()
 
@@ -15,28 +15,27 @@ split = Split(
     uart_flip = keyboard.uart_flip,
 )
 layers_ext = Layers()
-oneshot_mod_ext = OneShotMod(
-    timeout=1000,
-    release_mode=OneShotModReleaseMode.ON_INTERRUPT_PRESS,
-    cancel_on_repress=False,
-)
+oneshot_ext = OneShot()
 media_keys = MediaKeys()
 
-keyboard.modules = [split, layers_ext, oneshot_mod_ext]
+keyboard.modules = [split, layers_ext, oneshot_ext]
 keyboard.extensions = [media_keys]
 
 SYM = KC.MO(1)
 NAV = KC.MO(2)
 FUN = KC.MO(3)
 
-OS_LSFT = KC.OSM(KC.LSFT)
-OS_LCTL = KC.OSM(KC.LCTL)
-OS_LALT = KC.OSM(KC.LALT)
-OS_LGUI = KC.OSM(KC.LGUI)
-OS_RSFT = KC.OSM(KC.RSFT)
-OS_RCTL = KC.OSM(KC.RCTL)
-OS_RALT = KC.OSM(KC.RALT)
-OS_RGUI = KC.OSM(KC.RGUI)
+OS_LCTL = KC.OS(KC.LCTL)
+OS_LSFT = KC.OS(KC.LSFT)
+OS_LALT = KC.OS(KC.LALT)
+OS_LGUI = KC.OS(KC.LGUI)
+OS_RCTL = KC.OS(KC.RCTL)
+OS_RSFT = KC.OS(KC.RSFT)
+OS_RALT = KC.OS(KC.RALT)
+OS_RGUI = KC.OS(KC.RGUI)
+
+oneshot_ext.set_ignore_keys([OS_LCTL, OS_LSFT, OS_LALT, OS_LGUI, OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI, SYM, NAV, FUN, KC.LSFT])
+oneshot_ext.set_cancel_keys([SYM, NAV])
 
 keyboard.keymap = [
     [   # Default
