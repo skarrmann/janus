@@ -43,8 +43,7 @@ The two halves of the keyboard communicate using full-duplex serial. Note the RX
 
 * KMK
     * Setup instructions and basic configuration is in this repo: [`firmware/kmk`](firmware/kmk)
-* QMK
-    * [Pull request](https://github.com/qmk/qmk_firmware/pull/18367)
+* [QMK](https://github.com/qmk/qmk_firmware/tree/master/keyboards/janus)
 
 ## Bill of materials
 
