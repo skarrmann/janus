@@ -35,26 +35,17 @@ Both layouts use similar oneshot key implementations.
 As part of the oneshot module's setup, the following two methods should be called:
 
 * `set_ignore_keys(ignore_keys)`: Specify a list of keys which are not treated as oneshot interrupt keys
-* `set_cancel_keys(cancel_keys)`: Specify a list of keys which when pressed, all active oneshot keys are immediately released
 
 Oneshot keys behave as follows:
 
-* When any oneshot key is pressed:
-    * Send a key press event for its corresponding key
+* When a oneshot key is pressed:
     * Set oneshot status as "active"
-    * Track this oneshot key's status as "pressed"
-* When any oneshot key is released:
-    * If oneshot status is "active", then track this oneshot key's status as "queued"
-    * Otherwise, send a key release event for its corresponding key 
-* When an interrupt key is pressed:
-    * If oneshot status is "active", then track this interrupt key
-* When an interrupt key is released:
-    * If this interrupt key is tracked, then "release all oneshot keys"
-* When a cancel key is pressed:
-    * "Release all oneshot keys"
-
-When "release all oneshot keys" occurs:
-
-* Set oneshot status as "inactive"
-* For every oneshot key currently tracked with status "queued", send key release event for their corresponding key
-* Clear all tracked oneshot keys and interrupt keys
+    * Send a key press event for its corresponding key
+* When a oneshot key is released:
+    * If oneshot status is "active", then set this oneshot key's status as "queued"
+    * If oneshot status is not "active", send a key release event for its corresponding key
+* When an interrupt key (i.e., not a oneshot key and not an ignored key) is pressed:
+    * Set oneshot status as "inactive"
+    * Send the interrupt key's press event immediately so it's processed before oneshot keys are released
+    * For every oneshot key with status "queued", send key release event for their corresponding key
+    * Clear all oneshot key statuses
