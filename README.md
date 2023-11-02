@@ -47,19 +47,17 @@ The two halves of the keyboard communicate using full-duplex serial. Note the RX
 
 ## Bill of materials
 
-Vendor URLs are just recommendations based on quality/affordablity. I have purchased from these vendors, but have no personal affiliation with them.
-
-Part | Purpose | Quantity | Notes | Vendor URL
----- | ------- | -------- | --------- | ----------
-PCB  | circuit board | 4 | | Send Gerber zip files to [JLCPCB](https://jlcpcb.com/).
-Seeed XIAO RP2040 | Microcontroller board | 2 | | [Seeed Studio - XIAO RP2040](https://www.seeedstudio.com/XIAO-RP2040-v1-0-p-5026.html)
-Kycon GMX-SMT2-N-88 | connect keyboard halves | 2 | | [DigiKey - GMX-SMT2-N-88](https://www.digikey.com/en/products/detail/kycon-inc/GMX-SMT2-N-88/10246865)
-1N4148 SOD-123 | Diodes for keyboard row-column matrix | 34 | | [AliExpress (DSSRQI) - 1N4148 SOD-123](https://www.aliexpress.com/item/4000331408283.html)
-Keyswitches |  | 34 | PCB mount (5 pin) switches recommended | MX: [AliExpress (KPrepublic) - Gateron Switch RGB 5pin Clear](https://www.aliexpress.com/item/3256801798608641.html)
-Keycaps |  | 34 | | MX: [AliExpress (Cool Jazz) - DSA 1U Keycaps](https://www.aliexpress.com/item/2251832643863132.html)
-M2 6mm screws | Secure main PCB and plate PCBs | 8 | | [AliExpress (wuhushiyu) - 200PCS-M2 Mix - Black](https://www.aliexpress.com/item/32862529967.html)
-M2 nuts | Secure main PCB and plate PCBs | 8 | | See M2 set above
-2mm tall rubber bumpons | Raise board above desk surface and provide skid resitance | 12 | Shop around - you can get cheaper alternatives if you don't need 96 of them! | [Amazon - 3M SJ5302 Clear Bumpon Blister Pack (96 Bumpons)](https://www.amazon.com/SJ5302-Clear-Bumpon-Blister-Bumpons/dp/B01ACPT2LU)
+Part | Purpose | Quantity | Notes
+---- | ------- | -------- | ---------
+PCB  | circuit board | 4 |
+Seeed XIAO RP2040 | Microcontroller board | 2 |
+Kycon GMX-SMT2-N-88 | connect keyboard halves | 2 | This **exact** connector must be used to fit the board footprint!
+1N4148 SOD-123 | Diodes for keyboard row-column matrix | 34 |
+Keyswitches |  | 34 | PCB mount (5 pin) switches recommended
+Keycaps |  | 34 |
+M2 6mm screws | Secure main PCB and plate PCBs | 8 |
+M2 nuts | Secure main PCB and plate PCBs | 8 |
+2mm tall rubber bumpons | Raise board above desk surface and provide skid resitance | 12 |
 
 You will also need an ethernet patch cable to connect the keyboard halves. Monoprice Micro SlimRun cables are my personal recommendation.
 
