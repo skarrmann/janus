@@ -6,7 +6,7 @@ Apply these steps on each XIAO RP2040:
 
 1. Install CircuitPython:
     * https://circuitpython.org/board/seeeduino_xiao_rp2040/
-2. Following [KMK's split keyboard drive name convention](https://github.com/KMKfw/kmk_firmware/blob/master/docs/split_keyboards.md#drive-names), rename the `CIRCUITPY` drive to indicate whether it's the left or right side:
+2. Following [KMK's split keyboard drive name convention](https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/split_keyboards.md#drive-names), rename the `CIRCUITPY` drive to indicate whether it's the left or right side:
     * Left: `JANUS_L`
     * Right: `JANUS_R`
 2. Copy KMK firmware files:
