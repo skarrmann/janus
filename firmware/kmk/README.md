@@ -5,12 +5,12 @@
 Apply these steps on each XIAO RP2040:
 
 1. Install CircuitPython:
-    * https://wiki.seeedstudio.com/XIAO-RP2040-with-CircuitPython/
+    * https://circuitpython.org/board/seeeduino_xiao_rp2040/
 2. Following [KMK's split keyboard drive name convention](https://github.com/KMKfw/kmk_firmware/blob/master/docs/split_keyboards.md#drive-names), rename the `CIRCUITPY` drive to indicate whether it's the left or right side:
     * Left: `JANUS_L`
     * Right: `JANUS_R`
 2. Copy KMK firmware files:
-    * https://github.com/KMKfw/kmk_firmware/blob/master/docs/Getting_Started.md
+    * https://github.com/KMKfw/kmk_firmware/blob/master/docs/en/Getting_Started.md
 3. Copy the custom files:
     * [`kb.py`](kb.py)
     * [`main.py`](main.py)
@@ -46,6 +46,5 @@ Oneshot keys behave as follows:
     * If oneshot status is not "active", send a key release event for its corresponding key
 * When an interrupt key (i.e., not a oneshot key and not an ignored key) is pressed:
     * Set oneshot status as "inactive"
-    * Send the interrupt key's press event immediately so it's processed before oneshot keys are released
     * For every oneshot key with status "queued", send key release event for their corresponding key
     * Clear all oneshot key statuses

@@ -1,11 +1,10 @@
 from kb import KMKKeyboard
-
 from kmk.keys import KC
 from kmk.modules.split import Split
 from kmk.modules.layers import Layers
 from kmk.extensions.media_keys import MediaKeys
-
 from oneshot import OneShot
+
 
 keyboard = KMKKeyboard()
 
@@ -34,7 +33,7 @@ OS_RSFT = KC.OS(KC.RSFT)
 OS_RALT = KC.OS(KC.RALT)
 OS_RGUI = KC.OS(KC.RGUI)
 
-oneshot_ext.set_ignore_keys([FUN, KC.LSFT])
+oneshot_ext.set_ignore_keys([SYM, NAV, FUN, KC.LSFT])
 
 keyboard.keymap = [
     [   # Default
