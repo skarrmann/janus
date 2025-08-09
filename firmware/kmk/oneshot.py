@@ -1,10 +1,11 @@
-from kmk.keys import make_argumented_key
+from kmk.keys import Key, make_argumented_key
 from kmk.modules import Module
 
 
-class OneShotKeyMeta:
-    def __init__(self, kc):
-        self.kc = kc
+class OneShotKey(Key):
+    def __init__(self, key, **kwargs):
+        super().__init__(**kwargs)
+        self.key = key
 
 
 class OneShot(Module):
@@ -12,7 +13,7 @@ class OneShot(Module):
         self.ignore_keys = []
         self.oneshot_active = False
         self.queued_oneshot_keys = set()
-        make_argumented_key(validator=OneShotKeyMeta, names=('OS',), on_press=self.osk_pressed, on_release=self.osk_released)
+        make_argumented_key(names=('OS',), constructor=OneShotKey, on_press=self.osk_pressed, on_release=self.osk_released)
 
     def during_bootup(self, keyboard):
         return
@@ -42,21 +43,21 @@ class OneShot(Module):
         self.cancel_keys = cancel_keys
 
     def process_key(self, keyboard, current_key, is_pressed, int_coord):
-        if self.oneshot_active and not isinstance(current_key.meta, OneShotKeyMeta) and current_key not in self.ignore_keys and is_pressed:
+        if self.oneshot_active and not isinstance(current_key, OneShotKey) and current_key not in self.ignore_keys and is_pressed:
             self.oneshot_active = False
             for key in self.queued_oneshot_keys:
-                keyboard.resume_process_key(self, key.meta.kc, False)
+                keyboard.resume_process_key(self, key.key, False)
             self.queued_oneshot_keys.clear()
         return current_key
 
     def osk_pressed(self, key, keyboard, *args, **kwargs):
         self.oneshot_active = True
-        keyboard.resume_process_key(self, key.meta.kc, True)
+        keyboard.resume_process_key(self, key.key, True)
         return keyboard
 
     def osk_released(self, key, keyboard, *args, **kwargs):
         if self.oneshot_active:
             self.queued_oneshot_keys.add(key)
         else:
-            keyboard.resume_process_key(self, key.meta.kc, False)
+            keyboard.resume_process_key(self, key.key, False)
         return keyboard
