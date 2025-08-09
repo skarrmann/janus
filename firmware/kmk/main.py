@@ -35,7 +35,7 @@ OS_RSFT = KC.OS(KC.RSFT)
 OS_RALT = KC.OS(KC.RALT)
 OS_RGUI = KC.OS(KC.RGUI)
 
-oneshot_ext.set_ignore_keys([SYM, NAV, FUN, KC.LSFT])
+oneshot_ext.set_ignore_keys([SYM, NAV, FUN])
 
 keyboard.keymap = [
     [   # Default
